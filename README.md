@@ -1,46 +1,61 @@
-# Getting Started with Create React App
+# Video Editor
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a React-based video editor that allows users to trim videos and download the trimmed segments. The project uses `ffmpeg` to handle video processing and provides a timeline slider to adjust the start and end times of the video clip.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Upload or use a default video file to preview in the player.
+- Select start and end points using a timeline slider.
+- Download the trimmed video segment.
+- Option to add new video URLs via a modal.
 
-### `npm start`
+## Setup and Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Node.js (v14 or later)
+- npm (v6 or later)
+- FFmpeg (Ensure `ffmpeg` is installed on your machine. You can install it via `brew install ffmpeg` on macOS or download it from [ffmpeg.org](https://ffmpeg.org/).)
 
-### `npm test`
+### Installation Steps
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository:
 
-### `npm run build`
+```bash
+git clone https://github.com/admin-bnb/video-editor-demo
+cd video-editor
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Install dependencies:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Start the development server::
 
-### `npm run eject`
+```bash
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Project Structure
+- public/index.html: Includes the main HTML file, with Tailwind CSS loaded from CDN.
+- src/App.tsx: Main component that manages video playback, timeline slider, and downloading functionality.
+- src/components/VideoPlayer.tsx: Video player component responsible for video display and trimming logic.
+- src/components/VideoURLModal.tsx: Modal component for adding a new video URL.
+- src/helpers/ffmpegHelper.ts: Helper functions for trimming the video using FFmpeg.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Styling
+- Uses Tailwind CSS for utility-first styling.
+- Responsive design is implemented for better user experience on smaller screens.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Usage
+- Upload a video file or use the default video (BigBuckBunny.mp4).
+- Use the timeline slider to select the start and end points of the video.
+- Click the "Download Video" button to download the trimmed video.
+- Optionally, click the "Add New Video URL" button to upload a video from a URL.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Future Enhancements
+- Support for more video formats.
+- Adding additional video editing features like cropping, rotating, and adjusting speed.
+- Improve error handling and add user notifications for different events (e.g., when the video is successfully trimmed).
